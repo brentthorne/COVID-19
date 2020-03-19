@@ -36,7 +36,7 @@ confirm_tidy <- confirm_raw %>%
   group_by(Country, ProvState) %>% 
   arrange(Country, ProvState, Date) %>%
   mutate(Confirmed_Daily = Confirmed_Total - lag(Confirmed_Total, default = first(Confirmed_Total)))
-
+  
 #recovered
 recovered_tidy <- recovered_raw %>% 
   gather(key = "Date", value = "Recovered_Total", c(5:length(confirm_raw))) %>% 
